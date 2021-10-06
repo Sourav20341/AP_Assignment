@@ -1,4 +1,4 @@
-package com.company;
+package Assignment_1;
 
 public class Citizen {
     private String name;
