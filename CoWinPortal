@@ -1,0 +1,47 @@
+package Assignment_1;
+
+import java.util.*;
+
+public class CoWin_Portal {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Vaccine[] vaccineList = new Vaccine[50];
+        int vaccineIdx = 0;
+        while(true) {
+            System.out.print("Enter the number of operation from the option menu : ");
+            int n;
+            n = sc.nextInt();
+            if( n == -1){
+                break;
+            }
+            else if(n == 0) {
+
+                String name;
+                int DosesNumber;
+                int DoseGap;
+                sc.nextLine();
+                System.out.print("Enter the name of the vaccine : ");
+                name = sc.nextLine();
+                System.out.print("Enter the number of doses : ");
+                DosesNumber = sc.nextInt();
+                System.out.print("Enter the number of Gaps between doses : ");
+                DoseGap = sc.nextInt();
+
+                vaccineList[vaccineIdx] = new Vaccine(name, DosesNumber, DoseGap);
+                System.out.println("Successfully Vaccine is added");
+                System.out.println("=================================");
+                System.out.println("Details of the added vaccine");
+                System.out.println("=================================");
+                System.out.print("Name of the vaccine : ");
+                System.out.println(vaccineList[vaccineIdx].getName());
+                System.out.print("Number of Doses required : ");
+                System.out.println(vaccineList[vaccineIdx].getNumofDoses());
+                System.out.print("Number of Gaps required between doses : ");
+                System.out.println(vaccineList[vaccineIdx].getDoseGap());
+                System.out.println("=================================");
+                vaccineIdx++;
+
+            }
+        }
+    }
+}
