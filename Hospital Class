@@ -1,0 +1,22 @@
+package Assignment_1;
+
+import java.util.*;
+
+public class Hospital {
+    private String name;
+    private int pincode;
+    private int uniqueId;
+    private ArrayList<Slot> slots = new ArrayList<Slot>();
+
+    public Hospital(String name,int pincode,int uniqueId){
+        this.name = name;
+        this.pincode = pincode;
+        this.uniqueId = uniqueId;
+    }
+
+    public void addSlot(String vacName,int num,int qan){
+        Slot s = new Slot();
+        s.CreateSlot(vacName,num,qan);
+        slots.add(s);
+    }
+}
