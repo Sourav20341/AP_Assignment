@@ -4,17 +4,21 @@ import java.util.*;
 
 public class CoWin_Portal {
     public static void main(String[] args) {
+
+        System.out.println("CoWin_Portal is initialized");
         Scanner sc = new Scanner(System.in);
-        Vaccine[] vaccineList = new Vaccine[50];
-        int vaccineIdx = 0;
+        ArrayList<Vaccine>vaccineList = new ArrayList<Vaccine>();
+        ArrayList<Hospital>HospitalRegistry = new ArrayList<Hospital>();
+        ArrayList<Citizen>CitizenRegistry = new ArrayList<Citizen>();
+
         while(true) {
             System.out.print("Enter the number of operation from the option menu : ");
             int n;
             n = sc.nextInt();
-            if( n == -1){
-                break;
-            }
-            else if(n == 0) {
+
+            //Add Vaccine
+
+            if(n == 1) {
 
                 String name;
                 int DosesNumber;
@@ -26,21 +30,89 @@ public class CoWin_Portal {
                 DosesNumber = sc.nextInt();
                 System.out.print("Enter the number of Gaps between doses : ");
                 DoseGap = sc.nextInt();
-
-                vaccineList[vaccineIdx] = new Vaccine(name, DosesNumber, DoseGap);
+                Vaccine vac = new Vaccine(name, DosesNumber, DoseGap);
+                vaccineList.add(vac);
                 System.out.println("Successfully Vaccine is added");
                 System.out.println("=================================");
                 System.out.println("Details of the added vaccine");
                 System.out.println("=================================");
                 System.out.print("Name of the vaccine : ");
-                System.out.println(vaccineList[vaccineIdx].getName());
+                int vaccineIdx;
+                vaccineIdx = vaccineList.indexOf(vac);
+                System.out.println(vaccineList.get(vaccineIdx).getName());
                 System.out.print("Number of Doses required : ");
-                System.out.println(vaccineList[vaccineIdx].getNumofDoses());
+                System.out.println(vaccineList.get(vaccineIdx).getNumofDoses());
                 System.out.print("Number of Gaps required between doses : ");
-                System.out.println(vaccineList[vaccineIdx].getDoseGap());
+                System.out.println(vaccineList.get(vaccineIdx).getDoseGap());
                 System.out.println("=================================");
-                vaccineIdx++;
+            }
 
+            // Hospital Registry
+
+            else if(n == 2){
+                String name;
+                int pincode;
+                int uniqueid = 0;
+                sc.nextLine();
+                System.out.print("Enter the name of the hospital : ");
+                name = sc.nextLine();
+                System.out.print("Enter the pincode of the hospital : ");
+                pincode = sc.nextInt();
+                Hospital hospital = new Hospital(name,pincode,uniqueid);
+                HospitalRegistry.add(hospital);
+
+            }
+
+            // Citizen Registry
+
+            else if(n == 3){
+                String citizeName;
+                int Age;
+                int uniqueId = 0;
+                sc.nextLine();
+                System.out.print("Enter the name of the citizen : ");
+                citizeName = sc.nextLine();
+                System.out.print("Enter the age of the citizen : ");
+                Age = sc.nextInt();
+                Citizen citizen = new Citizen(citizeName,Age,uniqueId);
+                CitizenRegistry.add(citizen);
+            }
+
+            // Book a Slot
+
+            else if(n == 5){
+                int PId;
+                int Oper;
+                System.out.print("Enter the Patient's unique ID : ");
+                PId = sc.nextInt();
+                while(true){
+                    System.out.println("1. Search by area");
+                    System.out.println("2. Search by vaccine");
+                    System.out.println("3. Exit");
+                    System.out.print("Enter the option from above searching method's table : ");
+                    Oper = sc.nextInt();
+                    if(Oper == 1){
+
+                    }
+                    else if(Oper == 2){
+
+                    }
+                    else if(Oper == 3){
+                        System.out.println("Operation is closing");
+                        break;
+                    }
+                    else{
+                        System.out.println("Enter a valid input");
+                    }
+                }
+
+            }
+
+            //Exit
+
+            else if( n == 8){
+                System.out.println("Thanks for using our portal!");
+                break;
             }
         }
     }
