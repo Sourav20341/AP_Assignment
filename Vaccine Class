@@ -23,4 +23,8 @@ public class Vaccine {
     public int getDoseGap() {
         return doseGap;
     }
+
+    public void setNumofDoses(int numofDoses) {
+        this.numofDoses = numofDoses;
+    }
 }
