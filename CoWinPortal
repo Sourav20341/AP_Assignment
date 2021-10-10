@@ -234,6 +234,7 @@ public class CoWin_Portal {
                     int vaccQuantity;
                     String vaccineName = null;
                     int s = 0;
+                    System.out.println("-----------------------------------------");
                     System.out.println("Select Vaccine");
                     for (Vaccine vac : vaccineList) {
                         System.out.println(s + " " + vac.getName());
