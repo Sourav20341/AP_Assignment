@@ -397,7 +397,7 @@ public class CoWin_Portal {
                                         }
                                     }
                                     else{
-                                        System.out.println("You enter a wrong slot!");
+                                        System.out.println("Slot is not applicable for you!");
                                         break;
                                     }
                                     if(CitizenRegistry.get(citizenIndex).getDoses() == doses){
@@ -523,7 +523,7 @@ public class CoWin_Portal {
                                     CitizenRegistry.get(citizenIndex).setDoses(CitizenRegistry.get(citizenIndex).getDoses()+1);
                                 }
                                 else{
-                                    System.out.println("You enter a wrong slot number!");
+                                    System.out.println("Slot is not applicable for you!");
                                     break;
                                 }
                                 if(CitizenRegistry.get(citizenIndex).getDoses() == doses){
