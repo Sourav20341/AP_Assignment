@@ -406,6 +406,7 @@ public class CoWin_Portal {
 
                                     ArrayList<Slot>TempSlots = HospitalRegistry.get(hospitalIndex).getSlots();
                                     TempSlots.get(slotnum).setQuantity(TempSlots.get(slotnum).getQuantity() - 1);
+                                    System.out.println(CitizenRegistry.get(citizenIndex).getName() + " is vaccinated with " + TempSlots.get(slotnum).getVaccineName());
                                     if(TempSlots.get(slotnum).getQuantity() == 0){
                                         TempSlots.remove(slotnum);
                                     }
@@ -535,6 +536,7 @@ public class CoWin_Portal {
                                 }
                                 ArrayList<Slot>TempSlots = HospitalRegistry.get(Hosindx).getSlots();
                                 TempSlots.get(realSlotnum).setQuantity(TempSlots.get(realSlotnum).getQuantity() - 1);
+                                System.out.println(CitizenRegistry.get(citizenIndex).getName() + " is vaccinated with " + TempSlots.get(realSlotnum).getVaccineName());
                                 if(TempSlots.get(realSlotnum).getQuantity() == 0){
                                     TempSlots.remove(realSlotnum);
                                 }
