@@ -1,12 +1,12 @@
 package Assignment_1;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class CoWin_Portal {
 
     public static String uniqueIdGenerator(){
-        Random random = new Random();
-        int number = random.nextInt(1000000);
+        int number = ThreadLocalRandom.current().nextInt(100000 , 1000000);
         return String.format("%06d", number);
     }
 
@@ -396,6 +396,10 @@ public class CoWin_Portal {
                                             }
                                         }
                                     }
+                                    else{
+                                        System.out.println("You enter a wrong slot!");
+                                        break;
+                                    }
                                     if(CitizenRegistry.get(citizenIndex).getDoses() == doses){
                                         CitizenRegistry.get(citizenIndex).setVaccinStatus("FULLY VACCINATED");
                                     }
@@ -517,6 +521,10 @@ public class CoWin_Portal {
                                     CitizenRegistry.get(citizenIndex).setDosetime(daynum.get(slotnum));
                                     CitizenRegistry.get(citizenIndex).setVaccineName(vacName);
                                     CitizenRegistry.get(citizenIndex).setDoses(CitizenRegistry.get(citizenIndex).getDoses()+1);
+                                }
+                                else{
+                                    System.out.println("You enter a wrong slot number!");
+                                    break;
                                 }
                                 if(CitizenRegistry.get(citizenIndex).getDoses() == doses){
                                     CitizenRegistry.get(citizenIndex).setVaccinStatus("FULLY VACCINATED");
