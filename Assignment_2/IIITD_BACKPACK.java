@@ -477,6 +477,10 @@ public class IIITD_BACKPACK {
                         else if(idx == 3){
                             int id;
                             String text;
+                            if(assesments.size() == students.get(stdIndx).getAssesments().size() && quizzes.size() == students.get(stdIndx).getQuizzes().size()){
+                                System.out.println("No Pending Assessment");
+                                continue;
+                            }
                             System.out.println("Pending Assessment : ");
                             int i = 0;
                             for (Assesment assesment:assesments){
