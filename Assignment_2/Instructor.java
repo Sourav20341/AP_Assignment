@@ -1,7 +1,7 @@
 package Assignment_2;
 
 public class Instructor{
-    private String name;
+    private final String name;
 
     public String getName() {
         return name;
