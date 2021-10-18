@@ -54,10 +54,10 @@ public class IIITD_BACKPACK {
                 System.out.print("Choose Id : ");
                 instIndx = sc.nextInt();
                 if(instIndx >= 0 && instIndx < instructors.size()){
-                    System.out.println("---------------------------");
-                    System.out.println("        WELCOME " + instructors.get(instIndx).getName()+ "      ");
-                    System.out.println("---------------------------");
                     while (true){
+                        System.out.println("---------------------------");
+                        System.out.println("        WELCOME " + instructors.get(instIndx).getName()+ "      ");
+                        System.out.println("---------------------------");
                         int idx;
                         System.out.println("===========================");
                         System.out.println("      INSTRUCTOR MENU      ");
@@ -94,9 +94,10 @@ public class IIITD_BACKPACK {
                                 System.out.print("Enter the number of slides : ");
                                 numOfSlide = sc.nextInt();
                                 lecture_slide.setNumber_of_slides(numOfSlide);
+                                System.out.println("Enter content of slides : ");
+                                sc.nextLine();
                                 for (int i = 0;i<numOfSlide;i++) {
                                     String content;
-                                    sc.nextLine();
                                     System.out.print("Content of slide " + (i + 1) + ": ");
                                     content = sc.nextLine();
                                     lecture_slide.addContent(content);
@@ -150,9 +151,6 @@ public class IIITD_BACKPACK {
                                 maxMarks = sc.nextInt();
                                 assesment.addDeadline(problem,maxMarks);
                                 assesments.add(assesment);
-                                for (Student student:students) {
-                                    student.addAssigment(assesment);
-                                }
                             }
 
                             else if(index == 2){
@@ -163,9 +161,6 @@ public class IIITD_BACKPACK {
                                 question = sc.nextLine();
                                 quiz.addDeadline(question,1);
                                 quizzes.add(quiz);
-                                for (Student student:students) {
-                                    student.addQuiz(quiz);
-                                }
                             }
 
                             else{
@@ -254,8 +249,12 @@ public class IIITD_BACKPACK {
                                                     System.out.println(assem.getSubmission());
                                                     System.out.println("Max Marks : " + assem.getMax_marks());
                                                     int marks;
-                                                    System.out.println("Marks scored : ");
+                                                    System.out.print("Marks scored : ");
                                                     marks = sc.nextInt();
+                                                    if(marks <= assem.getMax_marks()){
+                                                        System.out.println("You can't gave marks more than maximum marks");
+                                                        continue;
+                                                    }
                                                     assem.setMarks(marks);
                                                     assem.setStatus(true);
                                                     assem.setCheckerName(instructors.get(instIndx).getName());
@@ -305,8 +304,12 @@ public class IIITD_BACKPACK {
                                                     System.out.println(quiz.getSubmission());
                                                     System.out.println("Max Marks : " + quiz.getMax_marks());
                                                     int marks;
-                                                    System.out.println("Marks scored : ");
+                                                    System.out.print("Marks scored : ");
                                                     marks = sc.nextInt();
+                                                    if(marks <= quiz.getMax_marks()){
+                                                        System.out.println("You can't gave marks more than maximum marks");
+                                                        continue;
+                                                    }
                                                     quiz.setMarks(marks);
                                                     quiz.setStatus(true);
                                                     quiz.setCheckerName(instructors.get(instIndx).getName());
@@ -339,6 +342,11 @@ public class IIITD_BACKPACK {
                         }
 
                         else if(idx == 6){
+                            if(assesments.isEmpty() && quizzes.isEmpty()){
+                                System.out.println("No assignment is open!");
+                                continue;
+                            }
+                            System.out.println("List of Open Assignments : ");
                             int i = 0;
                             for (Assesment assesment:assesments){
                                 System.out.print("ID "+i + " ");
@@ -346,32 +354,29 @@ public class IIITD_BACKPACK {
                                 System.out.println("---------");
                                 i++;
                             }
+                            int j = i;
                             for(Quiz quiz : quizzes){
                                 System.out.print("ID " + i + " ");
                                 quiz.viewDeadline();
                                 System.out.println("----------");
                                 i++;
                             }
-                            if(i == 0){
-                                System.out.println("No assessment is given!");
+
+                            int closingidx;
+                            System.out.print("Enter the id of assignment to close : ");
+                            closingidx = sc.nextInt();
+                            if(closingidx >= 0 && closingidx < quizzes.size()+assesments.size()){
+                                if(closingidx < assesments.size()){
+                                    assesments.remove(closingidx);
+                                }
+                                else{
+                                    quizzes.remove(closingidx-j);
+                                }
                             }
-                            else{
-                                int closingidx;
-                                System.out.print("Enter the id of assignment to close : ");
-                                closingidx = sc.nextInt();
-                                if(closingidx >= 0 && closingidx < quizzes.size()+assesments.size()){
-                                    if(closingidx < assesments.size()){
-                                        assesments.remove(closingidx);
-                                    }
-                                    else{
-                                        quizzes.remove(closingidx);
-                                    }
-                                }
-                                else {
-                                    System.out.println("---------------------------");
-                                    System.out.println("Please enter a valid Id!");
-                                    System.out.println("---------------------------");
-                                }
+                            else {
+                                System.out.println("---------------------------");
+                                System.out.println("Please enter a valid Id!");
+                                System.out.println("---------------------------");
                             }
                         }
 
@@ -428,10 +433,10 @@ public class IIITD_BACKPACK {
                 System.out.print("Choose Id : ");
                 stdIndx = sc.nextInt();
                 if (stdIndx >= 0 && stdIndx < students.size()) {
-                    System.out.println("---------------------------");
-                    System.out.println("        WELCOME " + students.get(stdIndx).getName() + "      ");
-                    System.out.println("---------------------------");
                     while (true){
+                        System.out.println("---------------------------");
+                        System.out.println("        WELCOME " + students.get(stdIndx).getName() + "      ");
+                        System.out.println("---------------------------");
                         int idx;
                         System.out.println("===========================");
                         System.out.println("        STUDENT MENU       ");
@@ -522,7 +527,7 @@ public class IIITD_BACKPACK {
                             id = sc.nextInt();
                             if(id>=0 && id<j){
                                 sc.nextLine();
-                                System.out.println("Enter the filename : ");
+                                System.out.print("Enter the filename : ");
                                 text = sc.nextLine();
                                 if(text.endsWith(".zip")){
                                     int c = 0;
@@ -573,7 +578,7 @@ public class IIITD_BACKPACK {
                                     c++;
                                 }
                                 sc.nextLine();
-                                System.out.print(quizzes.get(r-1) + ": ");
+                                System.out.print(quizzes.get(r-1).getProblemStatement() + " : ");
                                 text = sc.nextLine();
                                 students.get(stdIndx).getQuizzes().get(students.get(stdIndx).getQuizzes().size()-1).setSubmission(text);
                             }
