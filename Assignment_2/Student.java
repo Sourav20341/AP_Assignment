@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Student{
 
-    private String name;
+    private final String name;
 
     private ArrayList<Assesment>assesments = new ArrayList<>();
     private ArrayList<Quiz>quizzes = new ArrayList<>();
