@@ -251,7 +251,7 @@ public class IIITD_BACKPACK {
                                                     int marks;
                                                     System.out.print("Marks scored : ");
                                                     marks = sc.nextInt();
-                                                    if(marks <= assem.getMax_marks()){
+                                                    if(marks >= assem.getMax_marks()){
                                                         System.out.println("You can't gave marks more than maximum marks");
                                                         continue;
                                                     }
@@ -306,7 +306,7 @@ public class IIITD_BACKPACK {
                                                     int marks;
                                                     System.out.print("Marks scored : ");
                                                     marks = sc.nextInt();
-                                                    if(marks <= quiz.getMax_marks()){
+                                                    if(marks >= quiz.getMax_marks()){
                                                         System.out.println("You can't gave marks more than maximum marks");
                                                         continue;
                                                     }
