@@ -23,4 +23,6 @@ public interface Deadline {
     String getCheckerName();
 
     void setCheckerName(String name);
+
+    int getMax_marks();
 }
