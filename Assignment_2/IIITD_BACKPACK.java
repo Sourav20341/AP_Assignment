@@ -115,13 +115,13 @@ public class IIITD_BACKPACK {
                                 topic = sc.nextLine();
                                 System.out.print("Enter filename of video : ");
                                 filename = sc.nextLine();
-                                if(filename.length() >= 5 && filename.endsWith(".mp4")){
+                                if(filename.length() >= 5 && filename.endsWith(".mp4") && !filename.contains(" ")){
                                     lecture_video.add_Material(topic,date.toString(),instructors.get(instIndx).getName());
                                     lecture_video.setVideoFile(filename);
                                     lecture_videos.add(lecture_video);
                                 }
                                 else{
-                                    System.out.println("Upload failed!You try to upload a file with wrong extension!");
+                                    System.out.println("Upload failed!You try to upload a file with wrong extension or you enter filename using spaces!");
                                 }
                             }
 
@@ -529,7 +529,7 @@ public class IIITD_BACKPACK {
                                 sc.nextLine();
                                 System.out.print("Enter the filename : ");
                                 text = sc.nextLine();
-                                if(text.endsWith(".zip")){
+                                if(text.endsWith(".zip") && !text.contains(" ") && text.length() >= 5){
                                     int c = 0;
                                     for (Assesment assesment:assesments){
                                         boolean isfound = false;
@@ -552,7 +552,7 @@ public class IIITD_BACKPACK {
                                     }
                                 }
                                 else{
-                                    System.out.println("Upload has been failed!You use a file with wrong extension");
+                                    System.out.println("Upload has been failed!You use a file with wrong extension or you enter filename using spaces!");
                                 }
                             }
                             else if(id >=j && id < i){
