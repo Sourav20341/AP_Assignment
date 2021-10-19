@@ -64,6 +64,7 @@ public class Quiz implements Deadline{
         this.checkerName = name;
     }
 
+    @Override
     public int getMax_marks() {
         return max_marks;
     }
