@@ -3,7 +3,7 @@ package Assignment_2;
 import java.util.ArrayList;
 
 public class Lecture_Slide implements Materials{
-    private ArrayList<String>contents = new ArrayList<>();
+    private final ArrayList<String>contents = new ArrayList<>();
     private String title;
     private int number_of_slides;
     private String uploaderName;
