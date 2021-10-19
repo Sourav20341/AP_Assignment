@@ -251,7 +251,7 @@ public class IIITD_BACKPACK {
                                                     int marks;
                                                     System.out.print("Marks scored : ");
                                                     marks = sc.nextInt();
-                                                    if(marks >= assem.getMax_marks()){
+                                                    if(marks > assem.getMax_marks()){
                                                         System.out.println("You can't gave marks more than maximum marks");
                                                         continue;
                                                     }
@@ -306,7 +306,7 @@ public class IIITD_BACKPACK {
                                                     int marks;
                                                     System.out.print("Marks scored : ");
                                                     marks = sc.nextInt();
-                                                    if(marks >= quiz.getMax_marks()){
+                                                    if(marks > quiz.getMax_marks()){
                                                         System.out.println("You can't gave marks more than maximum marks");
                                                         continue;
                                                     }
@@ -544,7 +544,9 @@ public class IIITD_BACKPACK {
                                             continue;
                                         }
                                         if(c == id){
-                                            students.get(stdIndx).addAssigment(assesment);
+                                            Assesment As = new Assesment();
+                                            As.addDeadline(assesment.getProblemStatement(),assesment.getMax_marks());
+                                            students.get(stdIndx).addAssigment(As);
                                             students.get(stdIndx).getAssesments().get(students.get(stdIndx).getAssesments().size()-1).setSubmission(text);
                                             break;
                                         }
