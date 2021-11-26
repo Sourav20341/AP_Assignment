@@ -21,24 +21,25 @@ public class Main {
         sc.nextLine();
         for(int i = 0;i<N;i++){
             String title,ISBN;
-            String barcode = null;
+            String barcode;
             System.out.println("Enter the detail of book " + (i+1));
             System.out.println("============================================");
             System.out.print("Enter the title of book : ");
             title = sc.nextLine();
             System.out.print("Enter the ISBN of book : ");
             ISBN = sc.nextLine();
-            System.out.print("Enter the barcode of book : ");
             boolean ispresent = false;
             while(true){
+                System.out.print("Enter the barcode of book : ");
+                barcode = sc.nextLine();
                 for(Book book : books){
-                    barcode = sc.nextLine();
                     if(book.getBarcode().equalsIgnoreCase(barcode)){
                         ispresent = true;
+                        break;
                     }
                 }
                 if(ispresent){
-                    System.out.println("Barcode is already present ! Please re-enter the barcode");
+                    System.out.println("Barcode is already present ! Please re-enter the barcode.");
                     ispresent = false;
                 }
                 else{

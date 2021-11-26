@@ -31,26 +31,26 @@ public class ColourfulMatrix{
 
     public String Negative(){
         String toStr = null;
-        toStr.concat("Negative Red Matrix : \n");
+        toStr =("Negative Red Matrix : \n");
         for (int[] ints : arrayR) {
             for (int num : ints) {
-                toStr.concat((num - 255) + " ");
+                toStr+=((num - 255) + " ");
             }
-            toStr.concat("\n");
+            toStr+=("\n");
         }
-        toStr.concat("Negative Blue Matrix : \n");
+        toStr+=("Negative Blue Matrix : \n");
         for (int[] ints : arrayB) {
             for (int num : ints) {
-                toStr.concat((num - 255) + " ");
+                toStr+=((num - 255) + " ");
             }
-            toStr.concat("\n");
+            toStr+=("\n");
         }
-        toStr.concat("Negative Green Matrix : \n");
+        toStr+=("Negative Green Matrix : \n");
         for (int[] ints : arrayG) {
             for (int num : ints) {
-                toStr.concat((num - 255) + " ");
+                toStr+=((num - 255) + " ");
             }
-            toStr.concat("\n");
+            toStr+=("\n");
         }
         return toStr;
     }
@@ -69,26 +69,26 @@ public class ColourfulMatrix{
 
     public String toString(){
         String toStr = null;
-        toStr.concat("Red Color : \n");
+        toStr = ("Red Color : \n");
         for (int[] ints : arrayR) {
             for (int num : ints) {
-               toStr.concat(num + " ");
+               toStr+=(num + " ");
             }
-            toStr.concat("\n");
+            toStr+=("\n");
         }
-        toStr.concat("Blue Color : \n");
+        toStr+=("Blue Color : \n");
         for (int[] ints : arrayB) {
             for (int num : ints) {
-                toStr.concat(num + " ");
+                toStr+=(num + " ");
             }
-            toStr.concat("\n");
+            toStr+=("\n");
         }
-        toStr.concat("Green Color : \n");
+        toStr+=("Green Color : \n");
         for (int[] ints : arrayG) {
             for (int num : ints) {
-                toStr.concat(num + " ");
+                toStr+=(num + " ");
             }
-            toStr.concat("\n");
+            toStr+=("\n");
         }
         return toStr;
     }

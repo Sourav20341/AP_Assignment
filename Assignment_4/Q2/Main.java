@@ -12,11 +12,11 @@ public class Main {
             System.out.println("\n==========================================");
             System.out.println("                  Option Menu              ");
             System.out.println("==========================================");
-            System.out.println("1. Input Matrix");
-            System.out.println("2. Create Matrix");
-            System.out.println("3. Update Matrix");
-            System.out.println("4. Display Matrix");
-            System.out.println("5. Negative Matrix");
+            System.out.println("1. Input Image");
+            System.out.println("2. Create Image");
+            System.out.println("3. Update Image");
+            System.out.println("4. Display Image");
+            System.out.println("5. Negative Image");
             System.out.println("6. Exit");
             System.out.println("==========================================\n");
 
@@ -25,22 +25,21 @@ public class Main {
 
             if(input == 1) {
                 int choice;
+                String ID;
                 sc.nextLine();
+                System.out.print("Enter the matrix ID : ");
+                ID = sc.nextLine();
                 System.out.print("Enter number of rows : ");
                 int r;
                 r = sc.nextInt();
                 System.out.print("Enter number of columns : ");
                 int c;
                 c = sc.nextInt();
-                String ID;
-                sc.nextLine();
-                System.out.print("Enter the matrix ID : ");
-                ID = sc.nextLine();
                 System.out.println("\n==========================================");
                 System.out.println("                  Option Menu              ");
                 System.out.println("==========================================");
-                System.out.println("1. Grayscale Matrix");
-                System.out.println("2. Colourful Matrix");
+                System.out.println("1. Grayscale Image");
+                System.out.println("2. Colourful Image");
                 System.out.println("==========================================\n");
                 System.out.print("Enter your operation number : ");
                 choice = sc.nextInt();
@@ -64,7 +63,6 @@ public class Main {
                         for (int j = 0; j < c; j++) {
                             arrR[i][j] = sc.nextInt();
                         }
-                        System.out.println();
                     }
                     System.out.println();
                     System.out.println("Enter the Blue Color matrix elements : ");
@@ -72,7 +70,6 @@ public class Main {
                         for (int j = 0; j < c; j++) {
                             arrB[i][j] = sc.nextInt();
                         }
-                        System.out.println();
                     }
                     System.out.println();
                     System.out.println("Enter the Green Color matrix elements : ");
@@ -80,7 +77,6 @@ public class Main {
                         for (int j = 0; j < c; j++) {
                             arrG[i][j] = sc.nextInt();
                         }
-                        System.out.println();
                     }
                     System.out.println();
                     ColourfulMatrix colourfulMatrix = new ColourfulMatrix(ID,arrR,arrB,arrG);
@@ -92,7 +88,7 @@ public class Main {
                 int row,column,choice,option;
                 String ID;
                 sc.nextLine();
-                System.out.print("Enter the ID of matrix : ");
+                System.out.print("Enter the ID of Image : ");
                 ID = sc.nextLine();
                 System.out.print("Enter the number of rows : ");
                 row = sc.nextInt();
@@ -101,8 +97,8 @@ public class Main {
                 System.out.println("\n==========================================");
                 System.out.println("             Operation Menu               ");
                 System.out.println("==========================================");
-                System.out.println("1. Create Grayscale matrix");
-                System.out.println("2. Create Colourful matrix");
+                System.out.println("1. Create Grayscale Image");
+                System.out.println("2. Create Colourful Image");
                 System.out.println("==========================================\n");
                 System.out.print("Enter your choice : ");
                 option = sc.nextInt();
@@ -213,7 +209,6 @@ public class Main {
                         for(int j =0;j<cmatrices.get(index).getArrayR()[0].length;j++){
                             arr1[i][j] = sc.nextInt();
                         }
-                        System.out.println();
                     }
                     System.out.println("\n");
                     System.out.println("Enter Blue Coordinates : ");
@@ -221,7 +216,6 @@ public class Main {
                         for(int j =0;j<cmatrices.get(index).getArrayB()[0].length;j++){
                             arr2[i][j] = sc.nextInt();
                         }
-                        System.out.println();
                     }
                     System.out.println("\n");
                     System.out.println("Enter Green Coordinates : ");
@@ -229,7 +223,6 @@ public class Main {
                         for(int j =0;j<cmatrices.get(index).getArrayG()[0].length;j++){
                             arr3[i][j] = sc.nextInt();
                         }
-                        System.out.println();
                     }
                     cmatrices.get(index).setArray(arr1,arr2,arr3);
                 }
@@ -240,7 +233,6 @@ public class Main {
                         for(int j = 0;j<gmatrices.get(index).getArray()[0].length;j++){
                             arr[i][j] = sc.nextInt();
                         }
-                        System.out.println();
                     }
                     gmatrices.get(index).setArray(arr);
                 }

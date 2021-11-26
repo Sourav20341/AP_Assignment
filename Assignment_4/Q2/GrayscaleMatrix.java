@@ -23,12 +23,12 @@ public class GrayscaleMatrix{
 
     public String Negative(){
         String toStr = null;
-        toStr.concat("Negative Matrix : \n");
+        toStr  = ("Negative Matrix : \n");
         for (int[] ints : array) {
             for (int num : ints) {
-                toStr.concat((num - 255) + " ");
+                toStr += ((num - 255) + " ");
             }
-            toStr.concat("\n");
+            toStr += ("\n");
         }
         return toStr;
     }
@@ -36,12 +36,12 @@ public class GrayscaleMatrix{
     @Override
     public String toString(){
         String toStr = null;
-        toStr.concat("Gray : \n");
+        toStr = ("Grayscale : \n");
         for (int[] ints : array) {
             for (int num : ints) {
-                toStr.concat(num + " ");
+                toStr += (num + " ");
             }
-            toStr.concat("\n");
+            toStr += ("\n");
         }
         return toStr;
     }
