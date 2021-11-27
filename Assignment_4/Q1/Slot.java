@@ -3,16 +3,16 @@ package Assignment_4.Q1;
 public class Slot {
 
     static int id = 1;
-    private final Book book;
+    private final Library<Book> book;
     private final int ID;
 
-    public Slot(Book book) {
+    public Slot(Library<Book> book) {
         this.ID = id;
         this.book = book;
         id++;
     }
 
-    public Book getBook() {
+    public Library<Book> getBook() {
         return book;
     }
 

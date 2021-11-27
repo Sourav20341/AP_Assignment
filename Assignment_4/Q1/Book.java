@@ -1,7 +1,5 @@
 package Assignment_4.Q1;
 
-import java.util.Comparator;
-
 public class Book {
     private final String title;
     private final String ISBN;
@@ -26,21 +24,3 @@ public class Book {
     }
 }
 
-class sort implements Comparator<Book> {
-    public int compare(Book Book1,Book Book2)
-    {
-        int TitleCompare = Book1.getTitle().compareTo(Book2.getTitle());
-
-        int ISBNCompare = Book1.getISBN().compareTo(Book2.getISBN());
-
-        int BarcodeCompare = Book1.getBarcode().compareTo(Book2.getBarcode());
-
-        if(TitleCompare == 0){
-            if(ISBNCompare == 0){
-                return BarcodeCompare;
-            }
-            return ISBNCompare;
-        }
-        return TitleCompare;
-    }
-}
