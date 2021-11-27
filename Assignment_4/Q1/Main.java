@@ -56,7 +56,6 @@ public class Main {
         System.out.println("============================================");
         System.out.println("Program Finished!All books are arranged according to plan :)");
         System.out.println("============================================\n");
-        System.out.println("Resultant Order :-");
 
         books.sort(new sort());
 
@@ -74,12 +73,75 @@ public class Main {
             racks.add(new Rack(tempslot));
         }
 
-      for(Rack rack : racks){
-          System.out.println(rack);
-      }
+        int choice;
         System.out.println("\n============================================");
-        System.out.println("             Thank you for using  :) "       );
-        System.out.println("============================================");
+        System.out.println("               Operation                     ");
+        System.out.println("============================================\n");
+        System.out.println("1. Find a book");
+        System.out.println("2. Exit");
+        System.out.println("============================================\n");
+        System.out.print("Choose Operation : ");
+        choice = sc.nextInt();
+        if(choice == 1){
+            String getTitle,getISBN,getBarcode;
+            sc.nextLine();
+            System.out.print("Enter the Title of Book : ");
+            getTitle = sc.nextLine();
+            System.out.print("Enter the ISBN of Book : ");
+            getISBN = sc.nextLine();
+            System.out.print("Enter the Barcode of Book : ");
+            getBarcode = sc.nextLine();
+            int bookidx = -1;
+            for(Book book : books){
+                if(book.getTitle().equalsIgnoreCase(getTitle) && book.getISBN().equalsIgnoreCase(getISBN) && book.getBarcode().equalsIgnoreCase(getBarcode)){
+                    bookidx = books.indexOf(book);
+                    break;
+                }
+            }
+            if(bookidx != -1){
+                int slotidx = -1;
+                for(Slot slot : slots){
+                    if(slot.getBook().getBarcode().equalsIgnoreCase(books.get(bookidx).getBarcode())){
+                        slotidx = slot.getID();
+                        break;
+                    }
+                }
+                Rack rack = null;
+                boolean isget = false;
+                for (Rack rack1 : racks){
+                    for(Slot slot : rack1.getSlots()){
+                        if(slot.getID() == slotidx){
+                            rack = rack1;
+                            isget = true;
+                            break;
+                        }
+                    }
+                    if (isget){
+                        break;
+                    }
+                }
+                System.out.println("\n============================================");
+                System.out.println(" Book is present in : ");
+                System.out.println("============================================\n");
+                System.out.println(rack);
+                System.out.println("Slot ID : "+slotidx);
+            }
+            else{
+                System.out.println("\n============================================");
+                System.out.println("No Book is Present with this information in our library.");
+                System.out.println("============================================\n");
+            }
+        }
+        else if(choice == 2){
+            System.out.println("\n============================================");
+            System.out.println("             Thank you for using  :) "       );
+            System.out.println("============================================");
+            }
+        else{
+            System.out.println("\n============================================");
+            System.out.println("               Wrong Input                  ");
+            System.out.println("============================================");
+         }
     }
 }
 

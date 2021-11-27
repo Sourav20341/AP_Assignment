@@ -34,21 +34,21 @@ public class ColourfulMatrix{
         toStr =("Negative Red Matrix : \n");
         for (int[] ints : arrayR) {
             for (int num : ints) {
-                toStr+=((num - 255) + " ");
+                toStr+=((255 - num) + " ");
             }
             toStr+=("\n");
         }
         toStr+=("Negative Blue Matrix : \n");
         for (int[] ints : arrayB) {
             for (int num : ints) {
-                toStr+=((num - 255) + " ");
+                toStr+=((255 - num) + " ");
             }
             toStr+=("\n");
         }
         toStr+=("Negative Green Matrix : \n");
         for (int[] ints : arrayG) {
             for (int num : ints) {
-                toStr+=((num - 255) + " ");
+                toStr+=((255 - num) + " ");
             }
             toStr+=("\n");
         }

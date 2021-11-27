@@ -12,6 +12,10 @@ public class Rack {
         id ++;
     }
 
+    public ArrayList<Slot> getSlots() {
+        return slots;
+    }
+
     @Override
     public String toString(){
         String result = "Rack ID : "+ this.ID + " ";

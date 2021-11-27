@@ -26,7 +26,7 @@ public class GrayscaleMatrix{
         toStr  = ("Negative Matrix : \n");
         for (int[] ints : array) {
             for (int num : ints) {
-                toStr += ((num - 255) + " ");
+                toStr += ((255-num) + " ");
             }
             toStr += ("\n");
         }
